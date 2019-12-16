@@ -71,6 +71,6 @@ if __name__ == '__main__':
         callcenter_model = joblib.load(f'callcenter_model_fold_{i}')
         pred.append(callcenter_model.predict_proba(X)[:,1])
 
-    df_test['Метка'] = np.array(pred).mean(axis=0) > 0.44
+    df_test['Метка'] = np.array(pred).mean(axis=0) > 0.48
     df_test['Метка'] = df_test['Метка'].astype(int)
     df_test.to_csv(output_csv)
